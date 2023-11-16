@@ -1,0 +1,69 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3c3c3c;
+    color: #fff;
+    padding: 10px;
+    border-bottom: #00ffff;
+    border-top: #00ffff;
+    border-style: solid;
+    border-width: 3px;;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .navbar ul li {
+    margin-right: 20px;
+  }
+
+  .navbar a {
+    color: #fff; 
+    text-decoration: none; 
+    padding: 20px; 
+}
+
+.navbar a:hover{
+    color: #00ffff
+}
+
+.navbar a:active {
+    color: #00ffff;
+  }
+
+  
+  /* Styles for the cartwidget */
+  .cartwidget {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  /* Other responsive styles */
+  @media (max-width: 768px) {
+    .navbar ul {
+      display: none;
+    }
+    
+    .navbar .menu-icon {
+      display: block;
+    }
+    
+    .navbar .menu-icon:hover {
+      cursor: pointer;
+    }
+    
+    .navbar .menu-icon .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px;
+    }
+  }

@@ -1,0 +1,18 @@
+.article {
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-bottom: 20px;
+    }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h2 {
+    font-weight: bold;
+    color: #00ffff;
+  }
