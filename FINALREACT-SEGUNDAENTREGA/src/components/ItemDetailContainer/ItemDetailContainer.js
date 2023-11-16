@@ -5,31 +5,39 @@ import { useParams } from "react-router-dom";
 import { db } from "../../services/firebase-config";
 
 const ItemDetailContainer = () => {
-
   const { itemId } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const docRef = doc(db, 'items', itemId);
+    const fetchProduct = async () => {
+      try {
+        const docRef = doc(db, 'items', itemId);
+        const productSnap = await getDoc(docRef);
 
-    getDoc(docRef)
-      .then((response) => {
-        if (response.exists()) {
-          const data = response.data();
-          console.log(data)
-          const productSelected = { id: response.id, ...(data || {}) };
+        if (productSnap.exists()) {
+          const data = productSnap.data();
+          const productSelected = { id: doc.id, ...(data || {}) };
           setProduct(productSelected);
         } else {
           console.log("No existe el documento con el ID:", itemId);
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error al obtener el documento:", error);
-      });
+      }
+    };
+
+    fetchProduct();
   }, [itemId]);
 
-  return <ItemDetail {...product} />;
+  return (
+    <>
+      {product ? (
+        <ItemDetail {...product} />
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
+  );
 };
 
 export default ItemDetailContainer;
-
