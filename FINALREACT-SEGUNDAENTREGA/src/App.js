@@ -5,25 +5,29 @@ import ItemListContainer from './components/ItemlListContainer/ItemListContainer
 import ItemCount from './components/ItemCount/ItemCount';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import { CartProvider } from './CartContext/CartContext';
+import { CartProvider } from './context/CartContext';
 import { Footer } from './components/Footer/Footer';
+import { useHistory } from "react-router-dom";
+import CheckOut from './components/CheckOut/CheckOut';
 
 
 function App() {
   return (
 
     <div className="App">
-      <CartProvider>
       <BrowserRouter className="App">
+      <CartProvider>
       <Navbar/>
       <Routes>
         <Route path="/" exact element={<ItemListContainer />} />
         <Route path="/category/:categoryId" element={<ItemListContainer />} />
         <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<cart />} />
+        <Route path="/checkout" element={ <CheckOut />} />
         <Route path="*" element={<h1>404 NOT FOUND</h1>} />
       </Routes>
-      </BrowserRouter>
       </CartProvider>
+      </BrowserRouter>
       <Footer />
     </div>
   );
