@@ -8,7 +8,7 @@ import CartItem from "../CartItem/CartItem";
 const Cart = ()=> {
     const {cart,  clearCart, cartTotal, totalQuantity} = useContext(CartContext);
 
-    if (totalQuantity ===0){
+    if (cart.length ===0){
         return (
             <div>
                 <h2>El carrito está vacio</h2>
@@ -18,7 +18,7 @@ const Cart = ()=> {
             </div>
         );
     }
-else {
+
 
 
     return (
@@ -35,6 +35,6 @@ else {
     
     );
 }
-}
+
 
 export default Cart;
