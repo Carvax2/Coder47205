@@ -13,7 +13,6 @@ const Item = ({id, title, img, price, stock}) => {
             </picture>
             <section>
                 <p>Precio hoy: ${price}</p>
-                <p>Stock: {stock}</p>
             </section>
             <footer>
                 <Link to={`/item/${id}`}>Ver detalle</Link>
